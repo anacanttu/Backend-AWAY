@@ -16,9 +16,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
-import org.springframework.web.server.ResponseStatusException;
 
-import javax.naming.AuthenticationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,26 +43,6 @@ public class GlobalExceptionHandler {
         );
         
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
-    }
-
-    /**
-     * Trata exceções de validação de dados
-     */
-    @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<ErrorResponse> handleValidationException(
-            ValidationException ex, WebRequest request) {
-        
-        logger.warn("Erro de validação: {}", ex.getMessage());
-        
-        ErrorResponse errorResponse = new ErrorResponse(
-            ex.getMessage(),
-            "VALIDATION_ERROR",
-            HttpStatus.BAD_REQUEST.value(),
-            request.getDescription(false).replace("uri=", ""),
-            ex.getValidationErrors()
-        );
-        
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     /**

@@ -1,6 +1,5 @@
 package com.example.away.dto;
 
-import com.example.away.model.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

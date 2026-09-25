@@ -51,3 +51,10 @@ src\main\resources\application.properties
 # Ignorar arquivos de ambiente que contêm segredos
 .env
 .env.*
+
+# Node (script auxiliar de geração de JWT)
+node_modules/
+
+# Artefatos de deploy
+*.zip
+backend.pid
