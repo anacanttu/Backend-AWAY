@@ -58,3 +58,11 @@ node_modules/
 # Artefatos de deploy
 *.zip
 backend.pid
+
+# Segredos e certificados: nunca versionar
+certs/
+*.pem
+*.key
+*.crt
+*.csr
+.ebextensions/environment.config
