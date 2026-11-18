@@ -28,7 +28,7 @@ sudo -u postgres psql
 No prompt do PostgreSQL:
 ```sql
 CREATE DATABASE away_db;
-CREATE USER postgres WITH PASSWORD 'postgres';
+CREATE USER postgres WITH PASSWORD '<senha-do-banco>';
 GRANT ALL PRIVILEGES ON DATABASE away_db TO postgres;
 \q
 ```
@@ -58,8 +58,8 @@ Crie um arquivo `.env` na raiz do projeto AWAY com:
 ```env
 SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/away_db
 SPRING_DATASOURCE_USERNAME=postgres
-SPRING_DATASOURCE_PASSWORD=postgres
-JWT_SECRET=q0Ofty/GFEy7xkSp2iRJup9QuW7M7E4WoMAsnl4/SJY=
+SPRING_DATASOURCE_PASSWORD=<senha-do-banco>
+JWT_SECRET=<gere-com: openssl rand -base64 32>
 JWT_EXPIRATION=86400000
 CORS_ALLOWED_ORIGINS=http://localhost:4200,http://127.0.0.1:4200
 SERVER_PORT=8080
@@ -86,8 +86,8 @@ mvn clean package -DskipTests
 # Exportar variáveis de ambiente
 export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/away_db
 export SPRING_DATASOURCE_USERNAME=postgres
-export SPRING_DATASOURCE_PASSWORD=postgres
-export JWT_SECRET=q0Ofty/GFEy7xkSp2iRJup9QuW7M7E4WoMAsnl4/SJY=
+export SPRING_DATASOURCE_PASSWORD=<senha-do-banco>
+export JWT_SECRET=<gere-com: openssl rand -base64 32>
 export JWT_EXPIRATION=86400000
 export CORS_ALLOWED_ORIGINS=http://localhost:4200,http://127.0.0.1:4200
 export SERVER_PORT=8080

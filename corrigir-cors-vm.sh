@@ -115,8 +115,8 @@ ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$VM_USER@$VM_IP" << 'ENDSSH'
     # Exportar variáveis de ambiente
     export SPRING_DATASOURCE_URL="jdbc:postgresql://localhost:5432/away_db"
     export SPRING_DATASOURCE_USERNAME="postgres"
-    export SPRING_DATASOURCE_PASSWORD="postgres"
-    export JWT_SECRET="q0Ofty/GFEy7xkSp2iRJup9QuW7M7E4WoMAsnl4/SJY="
+    export SPRING_DATASOURCE_PASSWORD="${SPRING_DATASOURCE_PASSWORD:?defina a variavel}"
+    export JWT_SECRET="${JWT_SECRET:?defina a variavel}"
     export JWT_EXPIRATION="86400000"
     export CORS_ALLOWED_ORIGINS="http://98.83.35.183,http://98.83.35.183:80,http://localhost:4200,http://127.0.0.1:4200"
     export SERVER_PORT="8080"
